@@ -1,14 +1,14 @@
 <?php
 
 	//Leave all this stuff as it is
-	date_default_timezone_set('Europe/London');
+	date_default_timezone_set('America/Chicago');
 	include 'GIFEncoder.class.php';
 	include 'php52-fix.php';
 	$time = $_GET['time'];
 	$future_date = new DateTime(date('r',strtotime($time)));
 	$time_now = time();
 	$now = new DateTime(date('r', $time_now));
-	$frames = array();	
+	$frames = array();
 	$delays = array();
 
 
@@ -26,9 +26,9 @@
 		'color'=>imagecolorallocate($image, 55, 160, 130), // RGB Colour of the text
 	);
 	for($i = 0; $i <= 60; $i++){
-		
+
 		$interval = date_diff($future_date, $now);
-		
+
 		if($future_date < $now){
 			// Open the first source image and add the text.
 			$image = imagecreatefrompng('images/countdown.png');
